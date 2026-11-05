@@ -6,6 +6,7 @@ import { store } from './store'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 gsap.defaults({ ease: 'power3.out', duration: 0.9 })
+ScrollTrigger.config({ ignoreMobileResize: true })
 
 export { gsap, ScrollTrigger, SplitText }
 
@@ -19,17 +20,25 @@ export const isTouch = () =>
 export function initSmoothScroll() {
   if (prefersReduced()) return () => {}
   const lenis = new Lenis({
-    lerp: 0.08,
-    duration: 1.2, // used for programmatic scrollTo
+    lerp: 0.085,
+    duration: 1.15, // used for programmatic scrollTo
     smoothWheel: true,
+    syncTouch: false,
     wheelMultiplier: 1,
-    touchMultiplier: 1.2,
+    touchMultiplier: 1.15,
   })
   lenis.on('scroll', ScrollTrigger.update)
   const tick = (time) => lenis.raf(time * 1000)
   gsap.ticker.add(tick)
   gsap.ticker.lagSmoothing(0)
   store.set({ lenis })
+
+  if (typeof document !== 'undefined' && document.fonts?.ready) {
+    document.fonts.ready.then(() => {
+      ScrollTrigger.refresh()
+    })
+  }
+
   return () => {
     gsap.ticker.remove(tick)
     lenis.destroy()

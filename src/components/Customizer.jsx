@@ -293,7 +293,7 @@ export default function Customizer({ presetSelection }) {
                         fileInputRef.current?.click()
                       }
                     }}
-                    className={`mt-2 flex items-center justify-between gap-3.5 rounded-2xl border-2 border-dashed p-3.5 transition cursor-pointer ${
+                    className={`mt-2 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 rounded-2xl border-2 border-dashed p-3.5 transition cursor-pointer ${
                       dragActive
                         ? 'border-purple bg-purple/10'
                         : 'border-purple/30 bg-cream/65 hover:border-purple hover:bg-purple/5'
@@ -306,12 +306,12 @@ export default function Customizer({ presetSelection }) {
                       className="hidden"
                       onChange={(e) => handleFile(e.target.files?.[0])}
                     />
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
                       <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-purple text-white text-lg shadow">
                         📷
                       </span>
-                      <div>
-                        <div className="font-display text-sm sm:text-base font-bold text-purple-night">
+                      <div className="min-w-0">
+                        <div className="font-display text-sm sm:text-base font-bold text-purple-night truncate">
                           {uploadedName ? uploadedName : 'Drop your photo here or tap to browse'}
                         </div>
                         <div className="text-xs font-semibold text-ink/60">
@@ -319,7 +319,7 @@ export default function Customizer({ presetSelection }) {
                         </div>
                       </div>
                     </div>
-                    <span className="rounded-xl bg-white px-3 py-1.5 font-display text-xs font-bold text-purple shadow-sm border border-purple/15">
+                    <span className="shrink-0 rounded-xl bg-white px-3 py-1.5 font-display text-xs font-bold text-purple shadow-sm border border-purple/15">
                       Choose File
                     </span>
                   </div>

@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { ContactShadows, Float } from '@react-three/drei'
 import * as THREE from 'three'
 import StudioEnv from './StudioEnv'
@@ -17,6 +17,8 @@ function StageInner({
   const groupRef = useRef()
   const pointer = useRef({ x: 0, y: 0 })
   const spinOffset = useRef(0)
+  const { viewport } = useThree()
+  const fitScale = Math.min(1, Math.max(0.78, viewport.width / 2.6))
 
   // Celebratory 360° spin impulse whenever active type / shape changes
   useEffect(() => {
@@ -36,7 +38,7 @@ function StageInner({
     groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, targetRotX, damp)
 
     const currentScale = groupRef.current.scale.x
-    const nextScale = THREE.MathUtils.lerp(currentScale, sizeScale, damp)
+    const nextScale = THREE.MathUtils.lerp(currentScale, sizeScale * fitScale, damp)
     groupRef.current.scale.setScalar(nextScale)
   })
 

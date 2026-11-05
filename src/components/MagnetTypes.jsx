@@ -279,12 +279,12 @@ export default function MagnetTypes({ onSelectForCustomizer }) {
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-purple-night/75 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between text-white">
+              <div className="absolute bottom-3.5 left-4 right-4 sm:bottom-4 sm:left-5 sm:right-5 flex items-end justify-between gap-2 text-white">
                 <div>
-                  <span className="inline-block rounded-full bg-sun px-3 py-0.5 font-display text-xs font-bold text-purple-night">
+                  <span className="inline-block rounded-full bg-sun px-2.5 py-0.5 font-display text-[11px] sm:text-xs font-bold text-purple-night">
                     Glossy White Fridge
                   </span>
-                  <h3 className="mt-1.5 font-display text-2xl font-bold">
+                  <h3 className="mt-1 font-display text-lg sm:text-2xl font-bold leading-tight">
                     Candy-Shine Epoxy Dome
                   </h3>
                 </div>
@@ -294,7 +294,7 @@ export default function MagnetTypes({ onSelectForCustomizer }) {
                     e.preventDefault()
                     scrollToTarget('#customize')
                   }}
-                  className="rounded-full bg-white/95 px-4 py-2 font-display text-xs font-bold text-purple-night shadow hover:bg-sun transition"
+                  className="shrink-0 rounded-full bg-white/95 px-3.5 py-1.5 sm:px-4 sm:py-2 font-display text-xs font-bold text-purple-night shadow hover:bg-sun transition"
                 >
                   Make Yours →
                 </a>
@@ -314,12 +314,12 @@ export default function MagnetTypes({ onSelectForCustomizer }) {
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-purple-night/75 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between text-white">
+              <div className="absolute bottom-3.5 left-4 right-4 sm:bottom-4 sm:left-5 sm:right-5 flex items-end justify-between gap-2 text-white">
                 <div>
-                  <span className="inline-block rounded-full bg-mint px-3 py-0.5 font-display text-xs font-bold text-purple-night">
+                  <span className="inline-block rounded-full bg-mint px-2.5 py-0.5 font-display text-[11px] sm:text-xs font-bold text-purple-night">
                     Brushed Steel Fridge
                   </span>
-                  <h3 className="mt-1.5 font-display text-2xl font-bold">
+                  <h3 className="mt-1 font-display text-lg sm:text-2xl font-bold leading-tight">
                     Strong Full-Back Grip
                   </h3>
                 </div>
@@ -329,7 +329,7 @@ export default function MagnetTypes({ onSelectForCustomizer }) {
                     e.preventDefault()
                     scrollToTarget('#customize')
                   }}
-                  className="rounded-full bg-white/95 px-4 py-2 font-display text-xs font-bold text-purple-night shadow hover:bg-mint transition"
+                  className="shrink-0 rounded-full bg-white/95 px-3.5 py-1.5 sm:px-4 sm:py-2 font-display text-xs font-bold text-purple-night shadow hover:bg-mint transition"
                 >
                   Build A Grid →
                 </a>

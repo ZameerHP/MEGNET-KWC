@@ -28,11 +28,11 @@ const Logo = forwardRef(function Logo(
 ) {
   const Tag = as
   const sizeClasses = {
-    sm: 'text-[1.35rem] sm:text-[1.5rem]',
-    md: 'text-[1.55rem] sm:text-[1.8rem]',
-    lg: 'text-[2.2rem] sm:text-[2.8rem]',
-    xl: 'text-[2.8rem] sm:text-[4.2rem] md:text-[5.2rem]',
-  }[size] || 'text-[1.65rem]'
+    sm: 'text-[1.18rem] sm:text-[1.45rem]',
+    md: 'text-[1.4rem] sm:text-[1.75rem]',
+    lg: 'text-[1.9rem] sm:text-[2.6rem]',
+    xl: 'text-[2.2rem] sm:text-[3.8rem] md:text-[4.8rem]',
+  }[size] || 'text-[1.55rem]'
 
   let idx = 0
 

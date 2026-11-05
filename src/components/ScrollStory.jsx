@@ -163,16 +163,16 @@ export default function ScrollStory() {
         </div>
 
         {/* THE GLOSSY FRIDGE DOOR */}
-        <div className="fridge relative z-10 w-full max-w-3xl h-[56svh] min-h-[350px] max-h-[500px]">
+        <div className="fridge relative z-10 w-full max-w-3xl h-[52svh] sm:h-[56svh] min-h-[310px] sm:min-h-[350px] max-h-[500px]">
           {/* Freezer / Fridge horizontal seam */}
           <div className="fridge__seam top-[24%]" />
 
           {/* Chrome Handles */}
-          <div className="fridge__handle right-5 sm:right-8 top-[6%] h-[14%]" />
-          <div className="fridge__handle right-5 sm:right-8 top-[30%] h-[32%]" />
+          <div className="fridge__handle right-4 sm:right-8 top-[6%] h-[14%]" />
+          <div className="fridge__handle right-4 sm:right-8 top-[30%] h-[32%]" />
 
           {/* Subtle brand badge on the freezer door */}
-          <div className="pointer-events-none absolute top-[9%] left-1/2 -translate-x-1/2 rounded-full border border-ink/10 bg-white/75 px-4 py-1 font-display text-[11px] font-bold tracking-[0.2em] text-ink/40 uppercase shadow-sm">
+          <div className="pointer-events-none absolute top-[8%] left-1/2 -translate-x-1/2 rounded-full border border-ink/10 bg-white/75 px-3 sm:px-4 py-1 font-display text-[10px] sm:text-[11px] font-bold tracking-[0.16em] sm:tracking-[0.2em] text-ink/40 uppercase shadow-sm whitespace-nowrap">
             MAGNETICS KWC · FRIDGE WALL
           </div>
 
@@ -194,14 +194,14 @@ export default function ScrollStory() {
                   src={m.src}
                   alt={m.alt}
                   shape={m.shape}
-                  size="clamp(74px, 10.5vw, 118px)"
+                  size="clamp(60px, 11.5vw, 114px)"
                 />
                 <span
                   ref={(el) => {
                     badgeRefs.current[i] = el
                   }}
                   aria-hidden="true"
-                  className="pointer-events-none absolute -top-4 -right-4 rounded-full bg-sun px-2.5 py-0.5 font-display text-xs font-bold text-purple-night shadow-md border-2 border-white"
+                  className="pointer-events-none absolute -top-3.5 -right-3.5 rounded-full bg-sun px-2 py-0.5 font-display text-[10px] sm:text-xs font-bold text-purple-night shadow-md border-2 border-white"
                 >
                   SNAP!
                 </span>
@@ -212,9 +212,9 @@ export default function ScrollStory() {
           {/* Finale Copy + CTA Card at bottom of Fridge Door */}
           <div
             ref={finaleRef}
-            className="absolute inset-x-4 bottom-4 sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 sm:bottom-6 z-30 rounded-3xl bg-purple-night/95 px-6 py-4 sm:px-8 sm:py-5 text-center text-white shadow-2xl border-2 border-white/35 backdrop-blur-md flex flex-col sm:flex-row items-center gap-4"
+            className="absolute inset-x-3 bottom-3 sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 sm:bottom-5 z-30 rounded-2xl sm:rounded-3xl bg-purple-night/95 px-4 py-3 sm:px-7 sm:py-4 text-center text-white shadow-2xl border-2 border-white/35 backdrop-blur-md flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4"
           >
-            <p className="font-display text-base sm:text-xl font-bold text-cream">
+            <p className="font-display text-sm sm:text-lg font-bold text-cream whitespace-normal sm:whitespace-nowrap">
               “{STORY.endLine}”
             </p>
             <CandyButton href={STORY.cta.href} size="sm" ring>

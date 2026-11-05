@@ -1,5 +1,5 @@
 import { Suspense, useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { ContactShadows, Float } from '@react-three/drei'
 import * as THREE from 'three'
 import StudioEnv from './StudioEnv'
@@ -69,6 +69,8 @@ function SceneContent({ scrollProgressRef, pointerRef }) {
   const heroGroupRef = useRef()
   const satellitesRef = useRef([])
   const deg15 = THREE.MathUtils.degToRad(15)
+  const { viewport } = useThree()
+  const responsiveFit = Math.min(1, Math.max(0.74, viewport.width / 3.4))
 
   useFrame((state, dt) => {
     const t = state.clock.getElapsedTime()
@@ -118,7 +120,7 @@ function SceneContent({ scrollProgressRef, pointerRef }) {
   })
 
   return (
-    <>
+    <group scale={responsiveFit}>
       <StudioEnv warmIntensity={2.8} purpleIntensity={2.3} />
 
       {/* Main Hero 3D Fridge Magnet */}
@@ -167,7 +169,7 @@ function SceneContent({ scrollProgressRef, pointerRef }) {
         far={4.2}
         color="#4A0E02"
       />
-    </>
+    </group>
   )
 }
 

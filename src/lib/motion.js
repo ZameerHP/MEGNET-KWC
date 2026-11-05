@@ -20,16 +20,17 @@ export const isTouch = () =>
 export function initSmoothScroll() {
   if (prefersReduced()) return () => {}
   const lenis = new Lenis({
-    lerp: 0.085,
+    autoRaf: false,
+    lerp: 0.072,
     duration: 1.15, // used for programmatic scrollTo
     smoothWheel: true,
     syncTouch: false,
-    wheelMultiplier: 1,
+    wheelMultiplier: 0.92,
     touchMultiplier: 1.15,
   })
   lenis.on('scroll', ScrollTrigger.update)
   const tick = (time) => lenis.raf(time * 1000)
-  gsap.ticker.add(tick)
+  gsap.ticker.add(tick, false, true)
   gsap.ticker.lagSmoothing(0)
   store.set({ lenis })
 

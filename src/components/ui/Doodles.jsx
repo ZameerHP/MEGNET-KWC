@@ -87,20 +87,18 @@ export default function Doodles({ items = [], color = 'rgba(255,255,255,0.28)' }
     const el = wrapRef.current
     if (!el || prefersReduced()) return
     const nodes = el.querySelectorAll('[data-speed]')
+    if (!nodes.length) return
     const ctx = gsap.context(() => {
-      nodes.forEach((node) => {
-        const sp = parseFloat(node.getAttribute('data-speed') || '1')
-        gsap.to(node, {
-          y: () => -70 * sp,
-          rotation: () => 22 * sp,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 0.6,
-          },
-        })
+      gsap.to(nodes, {
+        y: (_, target) => -56 * parseFloat(target.getAttribute('data-speed') || '1'),
+        rotation: (_, target) => 18 * parseFloat(target.getAttribute('data-speed') || '1'),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
       })
     }, el)
     return () => ctx.revert()

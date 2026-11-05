@@ -70,8 +70,10 @@ function StageInner({
         position={[0, -1.45, 0]}
         opacity={0.35}
         scale={5.2}
-        blur={2.4}
+        blur={2.2}
         far={3.5}
+        frames={1}
+        resolution={256}
         color="#2A1B7A"
       />
     </group>

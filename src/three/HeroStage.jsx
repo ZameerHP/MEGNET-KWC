@@ -165,8 +165,10 @@ function SceneContent({ scrollProgressRef, pointerRef }) {
         position={[0, -1.78, 0]}
         opacity={0.42}
         scale={7.5}
-        blur={2.6}
+        blur={2.4}
         far={4.2}
+        frames={1}
+        resolution={256}
         color="#4A0E02"
       />
     </group>

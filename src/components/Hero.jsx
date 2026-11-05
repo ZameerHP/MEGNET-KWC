@@ -106,7 +106,7 @@ export default function Hero() {
           trigger: el,
           start: 'top top',
           end: 'bottom top',
-          scrub: 0.6,
+          scrub: true,
           onUpdate: (self) => {
             scrollProgressRef.current = self.progress
           },
@@ -211,7 +211,11 @@ export default function Hero() {
               {/* Soft warm + purple light bloom behind the 3D magnet */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-6 rounded-full bg-gradient-to-tr from-sun/45 via-orange-hot/35 to-purple/40 blur-3xl animate-pulse"
+                style={{
+                  background:
+                    'radial-gradient(circle, rgba(255,197,49,0.42) 0%, rgba(255,106,43,0.25) 42%, rgba(107,78,255,0.18) 65%, transparent 78%)',
+                }}
+                className="pointer-events-none absolute inset-2 rounded-full"
               />
 
               {useWebGL ? (

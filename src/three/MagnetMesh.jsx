@@ -121,7 +121,7 @@ export default function MagnetMesh({
       {...groupProps}
     >
       {/* White beveled magnet body */}
-      <mesh geometry={geo.base} castShadow receiveShadow>
+      <mesh geometry={geo.base}>
         <meshPhysicalMaterial
           color="#FFFDF9"
           roughness={0.22}

@@ -62,7 +62,7 @@ export default function ScrollStory() {
           start: 'top top',
           end: '+=240%',
           pin: pin,
-          scrub: 0.65,
+          scrub: true,
           anticipatePin: 1,
           onUpdate: (self) => {
             if (progressBarRef.current) {

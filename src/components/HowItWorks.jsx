@@ -66,7 +66,7 @@ export default function HowItWorks() {
             trigger: el,
             start: 'top 70%',
             end: 'bottom 65%',
-            scrub: 0.8,
+            scrub: true,
           },
         })
       }

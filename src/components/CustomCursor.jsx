@@ -26,28 +26,21 @@ export default function CustomCursor() {
     const dot = dotRef.current
     if (!cursor || !dot) return
 
-    const xTo = gsap.quickTo(cursor, 'x', { duration: 0.24, ease: 'power3.out' })
-    const yTo = gsap.quickTo(cursor, 'y', { duration: 0.24, ease: 'power3.out' })
-    const dotX = gsap.quickTo(dot, 'x', { duration: 0.08, ease: 'power3.out' })
-    const dotY = gsap.quickTo(dot, 'y', { duration: 0.08, ease: 'power3.out' })
+    const xTo = gsap.quickTo(cursor, 'x', { duration: 0.2, ease: 'power3.out' })
+    const yTo = gsap.quickTo(cursor, 'y', { duration: 0.2, ease: 'power3.out' })
+    const dotX = gsap.quickTo(dot, 'x', { duration: 0.06, ease: 'power3.out' })
+    const dotY = gsap.quickTo(dot, 'y', { duration: 0.06, ease: 'power3.out' })
+    let lastAttracted = false
 
     const onMove = (e) => {
       const target = e.target?.closest?.('a, button, [role="button"], [data-cursor="magnet"], input, label, select')
-      if (target) {
-        setAttracted(true)
-        const r = target.getBoundingClientRect()
-        const cx = r.left + r.width / 2
-        const cy = r.top + r.height / 2
-        // Subtle magnetic pull toward element center
-        const pullX = e.clientX + (cx - e.clientX) * 0.18
-        const pullY = e.clientY + (cy - e.clientY) * 0.18
-        xTo(pullX)
-        yTo(pullY)
-      } else {
-        setAttracted(Boolean(document.body.dataset.cursorHover))
-        xTo(e.clientX)
-        yTo(e.clientY)
+      const nextAttracted = Boolean(target || document.body.dataset.cursorHover)
+      if (nextAttracted !== lastAttracted) {
+        lastAttracted = nextAttracted
+        setAttracted(nextAttracted)
       }
+      xTo(e.clientX)
+      yTo(e.clientY)
       dotX(e.clientX)
       dotY(e.clientY)
     }
